@@ -783,6 +783,441 @@
         .pulse {
             animation: pulse 2s infinite;
         }
+        
+        /* Course View Styles */
+        .course-view {
+            display: none;
+            padding: 20px;
+        }
+        
+        .course-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+        
+        .course-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .course-details h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .course-details p {
+            color: var(--dark);
+            opacity: 0.8;
+            max-width: 700px;
+        }
+        
+        .course-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+        
+        .lessons-container {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 5px 15px var(--card-shadow);
+            border: 1px solid rgba(156, 137, 184, 0.1);
+        }
+        
+        .lesson-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .lesson-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(156, 137, 184, 0.05);
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid rgba(156, 137, 184, 0.08);
+        }
+        
+        .lesson-item:hover {
+            background: rgba(156, 137, 184, 0.1);
+        }
+        
+        .lesson-item.completed {
+            background: rgba(141, 223, 193, 0.2);
+            border-color: rgba(94, 156, 141, 0.2);
+        }
+        
+        .lesson-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: 600;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+        
+        .lesson-item.completed .lesson-number {
+            background: var(--teal);
+            color: white;
+        }
+        
+        .lesson-content {
+            flex: 1;
+        }
+        
+        .lesson-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .lesson-content p {
+            font-size: 0.9rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+        
+        .lesson-time {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: var(--teal);
+            margin-top: 5px;
+        }
+        
+        .lesson-status {
+            margin-left: 15px;
+            color: var(--teal);
+            font-size: 1.2rem;
+        }
+        
+        .back-btn {
+            background: rgba(156, 137, 184, 0.1);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .back-btn:hover {
+            background: rgba(156, 137, 184, 0.2);
+        }
+        
+        /* Quiz Styles */
+        .quiz-container {
+            display: none;
+            padding: 20px;
+        }
+        
+        .quiz-header {
+            margin-bottom: 30px;
+        }
+        
+        .quiz-header h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .quiz-header p {
+            color: var(--dark);
+            opacity: 0.8;
+            max-width: 700px;
+        }
+        
+        .quiz-content {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 5px 15px var(--card-shadow);
+            border: 1px solid rgba(156, 137, 184, 0.1);
+        }
+        
+        .question-container {
+            margin-bottom: 30px;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .option-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(156, 137, 184, 0.05);
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid rgba(156, 137, 184, 0.08);
+        }
+        
+        .option-item:hover {
+            background: rgba(156, 137, 184, 0.1);
+        }
+        
+        .option-item.selected {
+            background: rgba(94, 156, 141, 0.1);
+            border-color: rgba(94, 156, 141, 0.3);
+        }
+        
+        .option-letter {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: 600;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+        
+        .option-item.selected .option-letter {
+            background: var(--teal);
+            color: white;
+        }
+        
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .quiz-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .quiz-btn.prev {
+            background: rgba(156, 137, 184, 0.1);
+            color: var(--secondary);
+        }
+        
+        .quiz-btn.next {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .quiz-btn.prev:hover {
+            background: rgba(156, 137, 184, 0.2);
+        }
+        
+        .quiz-btn.next:hover {
+            background: #6a4d8a;
+        }
+        
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .quiz-result i {
+            font-size: 4rem;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+        
+        .quiz-result h3 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .quiz-result p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .result-score {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 20px 0;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: var(--primary-light);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--teal);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        /* Certificate Styles */
+        .certificate {
+            display: none;
+            background: white;
+            border: 20px solid var(--teal);
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .certificate-header {
+            margin-bottom: 30px;
+        }
+        
+        .certificate-header h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .certificate-header p {
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .certificate-body {
+            margin: 40px 0;
+        }
+        
+        .certificate-body h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+        }
+        
+        .certificate-body h4 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .certificate-details {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            text-align: left;
+        }
+        
+        .detail-item {
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .detail-item p {
+            margin: 5px 0;
+            color: var(--dark);
+        }
+        
+        .detail-item strong {
+            color: var(--secondary);
+        }
+        
+        .certificate-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(156, 137, 184, 0.3);
+        }
+        
+        .signature {
+            text-align: center;
+        }
+        
+        .signature p {
+            margin-top: 10px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .signature-line {
+            width: 200px;
+            height: 1px;
+            background: var(--dark);
+            margin: 20px auto;
+        }
+        
+        .certificate-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--teal);
+        }
+        
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            color: rgba(156, 137, 184, 0.1);
+            font-weight: 700;
+            z-index: -1;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -812,14 +1247,15 @@
         </header>
         
         <div class="nav-tabs">
-            <div class="nav-tab active">Dashboard</div>
-            <div class="nav-tab">My Courses</div>
+            <div class="nav-tab active" data-view="dashboard">Dashboard</div>
+            <div class="nav-tab" data-view="courses">My Courses</div>
             <div class="nav-tab">Learning Paths</div>
             <div class="nav-tab">Achievements</div>
             <div class="nav-tab">Resources</div>
         </div>
         
-        <div class="content">
+        <!-- Dashboard View -->
+        <div class="content" id="dashboard-view">
             <div class="main-content">
                 <div class="welcome-card">
                     <div class="welcome-text">
@@ -841,7 +1277,7 @@
                 <div class="modules-section">
                     <h2><i class="fas fa-graduation-cap"></i> Featured Modules</h2>
                     <div class="modules-grid">
-                        <div class="module-card pulse">
+                        <div class="module-card pulse" data-course="data-viz">
                             <div class="module-image">
                                 <i class="fas fa-chart-line"></i>
                             </div>
@@ -857,7 +1293,7 @@
                             </div>
                         </div>
                         
-                        <div class="module-card">
+                        <div class="module-card" data-course="cyber-security">
                             <div class="module-image">
                                 <i class="fas fa-lock"></i>
                             </div>
@@ -873,7 +1309,7 @@
                             </div>
                         </div>
                         
-                        <div class="module-card">
+                        <div class="module-card" data-course="ai-fundamentals">
                             <div class="module-image">
                                 <i class="fas fa-robot"></i>
                             </div>
@@ -889,7 +1325,7 @@
                             </div>
                         </div>
                         
-                        <div class="module-card">
+                        <div class="module-card" data-course="js-patterns">
                             <div class="module-image">
                                 <i class="fas fa-code"></i>
                             </div>
@@ -1006,6 +1442,134 @@
             </div>
         </div>
         
+        <!-- Course View -->
+        <div class="course-view" id="course-view">
+            <button class="back-btn" id="course-back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Courses
+            </button>
+            
+            <div class="course-header">
+                <div class="course-icon" id="course-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="course-details">
+                    <h2 id="course-title">Data Visualization</h2>
+                    <p id="course-description">Learn to create compelling visual stories with data in 5-minute lessons. Master the art of transforming complex data into clear, insightful visualizations that drive decision-making.</p>
+                    <div class="course-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-signal"></i>
+                            <span id="course-level">Intermediate</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-book"></i>
+                            <span id="course-lessons">8 lessons</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="course-duration">40 minutes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lessons-container">
+                <h3><i class="fas fa-list-ol"></i> Course Lessons</h3>
+                <div class="lesson-list" id="lesson-list">
+                    <!-- Lessons will be populated here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quiz View -->
+        <div class="quiz-container" id="quiz-view">
+            <button class="back-btn" id="quiz-back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Course
+            </button>
+            
+            <div class="quiz-header">
+                <h2 id="quiz-title">Data Visualization Quiz</h2>
+                <p>Test your knowledge on the concepts covered in the Data Visualization course.</p>
+            </div>
+            
+            <div class="quiz-content" id="quiz-content">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="quiz-progress" style="width: 0%"></div>
+                </div>
+                
+                <div class="question-container" id="question-container">
+                    <!-- Questions will be populated here -->
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="quiz-btn prev" id="prev-btn">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="quiz-btn next" id="next-btn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="quiz-btn next" id="submit-btn" style="display: none;">
+                        Submit Quiz
+                    </button>
+                </div>
+            </div>
+            
+            <div class="quiz-result" id="quiz-result">
+                <i class="fas fa-trophy"></i>
+                <h3>Congratulations!</h3>
+                <p>You have successfully completed the Data Visualization quiz</p>
+                <div class="result-score" id="quiz-score">0%</div>
+                <p>Your certificate of completion is ready</p>
+                <button class="auth-btn" id="certificate-btn">
+                    View Certificate
+                </button>
+                <button class="back-btn" id="result-back-btn" style="margin-top: 20px;">
+                    <i class="fas fa-arrow-left"></i> Back to Course
+                </button>
+            </div>
+        </div>
+        
+        <!-- Certificate View -->
+        <div class="certificate" id="certificate-view">
+            <div class="certificate-logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <div class="watermark">MindPulse</div>
+            
+            <div class="certificate-header">
+                <h2>CERTIFICATE OF COMPLETION</h2>
+                <p>This is to certify that</p>
+            </div>
+            
+            <div class="certificate-body">
+                <h3 id="cert-user">[User Name]</h3>
+                <h4>has successfully completed the course</h4>
+                <h3 id="cert-course">Data Visualization</h3>
+            </div>
+            
+            <div class="certificate-details">
+                <div class="detail-item">
+                    <p><strong>Date:</strong> <span id="cert-date">July 10, 2025</span></p>
+                    <p><strong>Duration:</strong> <span id="cert-duration">40 minutes</span></p>
+                </div>
+                <div class="detail-item">
+                    <p><strong>Score:</strong> <span id="cert-score">95%</span></p>
+                    <p><strong>Certificate ID:</strong> <span id="cert-id">MP-2025-DV-00123</span></p>
+                </div>
+            </div>
+            
+            <div class="certificate-footer">
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <p>Alex Johnson</p>
+                    <p>Chief Learning Officer</p>
+                </div>
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <p>MindPulse Learning</p>
+                </div>
+            </div>
+        </div>
+        
         <footer>
             <p>MindPulse • Sophisticated microlearning for the modern mind</p>
         </footer>
@@ -1103,6 +1667,166 @@
         const showLogin = document.getElementById('show-login');
         const toast = document.getElementById('toast');
         
+        // Course Elements
+        const dashboardView = document.getElementById('dashboard-view');
+        const courseView = document.getElementById('course-view');
+        const quizView = document.getElementById('quiz-view');
+        const certificateView = document.getElementById('certificate-view');
+        const navTabs = document.querySelectorAll('.nav-tab');
+        const courseBackBtn = document.getElementById('course-back-btn');
+        const quizBackBtn = document.getElementById('quiz-back-btn');
+        const resultBackBtn = document.getElementById('result-back-btn');
+        const lessonList = document.getElementById('lesson-list');
+        const courseTitle = document.getElementById('course-title');
+        const courseDescription = document.getElementById('course-description');
+        const courseLevel = document.getElementById('course-level');
+        const courseLessons = document.getElementById('course-lessons');
+        const courseDuration = document.getElementById('course-duration');
+        const courseIcon = document.getElementById('course-icon');
+        
+        // Quiz Elements
+        const quizTitle = document.getElementById('quiz-title');
+        const questionContainer = document.getElementById('question-container');
+        const quizContent = document.getElementById('quiz-content');
+        const quizResult = document.getElementById('quiz-result');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const quizProgress = document.getElementById('quiz-progress');
+        const quizScore = document.getElementById('quiz-score');
+        const certificateBtn = document.getElementById('certificate-btn');
+        
+        // Certificate Elements
+        const certUser = document.getElementById('cert-user');
+        const certCourse = document.getElementById('cert-course');
+        const certDate = document.getElementById('cert-date');
+        const certDuration = document.getElementById('cert-duration');
+        const certScore = document.getElementById('cert-score');
+        const certId = document.getElementById('cert-id');
+        
+        // Course Data
+        const courses = {
+            'data-viz': {
+                title: 'Data Visualization',
+                description: 'Learn to create compelling visual stories with data in 5-minute lessons. Master the art of transforming complex data into clear, insightful visualizations that drive decision-making.',
+                level: 'Intermediate',
+                lessons: 8,
+                duration: '40 minutes',
+                icon: 'fas fa-chart-line',
+                lessons: [
+                    { title: 'Introduction to Data Visualization', description: 'Understanding the power of visual data', duration: 5, completed: false },
+                    { title: 'Choosing the Right Chart Type', description: 'Matching visualization to data characteristics', duration: 6, completed: false },
+                    { title: 'Color Theory for Data Viz', description: 'Using color effectively in visualizations', duration: 4, completed: false },
+                    { title: 'Design Principles', description: 'Creating clear and impactful visuals', duration: 5, completed: false },
+                    { title: 'Interactive Visualizations', description: 'Engaging users with interactive elements', duration: 6, completed: false },
+                    { title: 'Dashboard Design', description: 'Creating comprehensive data dashboards', duration: 5, completed: false },
+                    { title: 'Data Storytelling', description: 'Crafting narratives with data', duration: 5, completed: false },
+                    { title: 'Advanced Visualization Techniques', description: 'Going beyond basic charts and graphs', duration: 4, completed: false }
+                ]
+            },
+            'cyber-security': {
+                title: 'Cybersecurity Basics',
+                description: 'Essential security practices in bite-sized, easy-to-digest lessons. Protect yourself and your organization from common cyber threats.',
+                level: 'Beginner',
+                lessons: 6,
+                duration: '30 minutes',
+                icon: 'fas fa-lock',
+                lessons: [
+                    { title: 'Understanding Cyber Threats', description: 'Recognizing common security risks', duration: 5, completed: false },
+                    { title: 'Creating Strong Passwords', description: 'Building and managing secure credentials', duration: 5, completed: false },
+                    { title: 'Phishing Awareness', description: 'Identifying and avoiding email scams', duration: 5, completed: false },
+                    { title: 'Secure Browsing Habits', description: 'Safe practices for online activities', duration: 5, completed: false },
+                    { title: 'Data Protection Basics', description: 'Securing sensitive information', duration: 5, completed: false },
+                    { title: 'Two-Factor Authentication', description: 'Adding an extra layer of security', duration: 5, completed: false }
+                ]
+            },
+            'ai-fundamentals': {
+                title: 'AI Fundamentals',
+                description: 'Understand AI concepts through 3-minute micro-lessons. Explore the foundations of artificial intelligence and machine learning.',
+                level: 'Beginner',
+                lessons: 5,
+                duration: '25 minutes',
+                icon: 'fas fa-robot',
+                lessons: [
+                    { title: 'What is Artificial Intelligence?', description: 'Defining AI and its applications', duration: 5, completed: false },
+                    { title: 'Machine Learning Basics', description: 'Understanding how machines learn', duration: 5, completed: false },
+                    { title: 'Neural Networks Explained', description: 'How AI mimics the human brain', duration: 5, completed: false },
+                    { title: 'Natural Language Processing', description: 'Teaching computers to understand language', duration: 5, completed: false },
+                    { title: 'AI Ethics and Responsibility', description: 'Considering the implications of AI', duration: 5, completed: false }
+                ]
+            },
+            'js-patterns': {
+                title: 'JavaScript Patterns',
+                description: 'Master JavaScript design patterns with quick 4-minute tutorials. Write cleaner, more maintainable code.',
+                level: 'Advanced',
+                lessons: 7,
+                duration: '35 minutes',
+                icon: 'fas fa-code',
+                lessons: [
+                    { title: 'Module Pattern', description: 'Organizing code into modules', duration: 5, completed: false },
+                    { title: 'Revealing Module Pattern', description: 'Controlling visibility of module members', duration: 5, completed: false },
+                    { title: 'Singleton Pattern', description: 'Creating single instances', duration: 5, completed: false },
+                    { title: 'Observer Pattern', description: 'Implementing event-driven systems', duration: 5, completed: false },
+                    { title: 'Factory Pattern', description: 'Creating objects dynamically', duration: 5, completed: false },
+                    { title: 'Decorator Pattern', description: 'Adding functionality dynamically', duration: 5, completed: false },
+                    { title: 'Strategy Pattern', description: 'Encapsulating interchangeable algorithms', duration: 5, completed: false }
+                ]
+            }
+        };
+        
+        // Quiz Data
+        const quizzes = {
+            'data-viz': [
+                {
+                    question: "Which chart type is best for showing parts of a whole?",
+                    options: [
+                        "Line Chart",
+                        "Bar Chart",
+                        "Pie Chart",
+                        "Scatter Plot"
+                    ],
+                    answer: 2
+                },
+                {
+                    question: "What does the term 'data-ink ratio' refer to in data visualization?",
+                    options: [
+                        "The proportion of ink used to display data versus non-data elements",
+                        "The ratio of data points to visualization size",
+                        "The balance between data and explanatory text",
+                        "The relationship between data complexity and color usage"
+                    ],
+                    answer: 0
+                },
+                {
+                    question: "Which color scheme is most appropriate for sequential data?",
+                    options: [
+                        "Qualitative color scheme",
+                        "Diverging color scheme",
+                        "Sequential color scheme",
+                        "Categorical color scheme"
+                    ],
+                    answer: 2
+                },
+                {
+                    question: "What is the primary purpose of a dashboard in data visualization?",
+                    options: [
+                        "To display as much data as possible",
+                        "To provide a high-level overview of key metrics",
+                        "To showcase complex visualizations",
+                        "To replace detailed reports"
+                    ],
+                    answer: 1
+                }
+            ]
+        };
+        
+        // Current state
+        let currentCourse = null;
+        let currentQuiz = null;
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let currentView = 'dashboard';
+        
         // Show toast notification
         function showToast(message, type = 'success') {
             toast.textContent = message;
@@ -1136,6 +1860,199 @@
                 document.querySelector('.progress-circle').style.background = 
                     `conic-gradient(var(--teal) 0%, var(--primary-light) 0)`;
             }
+        }
+        
+        // Show a specific view
+        function showView(view) {
+            // Hide all views
+            dashboardView.style.display = 'none';
+            courseView.style.display = 'none';
+            quizView.style.display = 'none';
+            certificateView.style.display = 'none';
+            
+            // Update nav tabs
+            navTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show the requested view
+            if (view === 'dashboard') {
+                dashboardView.style.display = 'grid';
+                document.querySelector('.nav-tab[data-view="dashboard"]').classList.add('active');
+            } else if (view === 'course') {
+                courseView.style.display = 'block';
+                document.querySelector('.nav-tab[data-view="courses"]').classList.add('active');
+            } else if (view === 'quiz') {
+                quizView.style.display = 'block';
+            } else if (view === 'certificate') {
+                certificateView.style.display = 'block';
+            }
+            
+            currentView = view;
+        }
+        
+        // Load course view
+        function loadCourse(courseId) {
+            if (!isLoggedIn()) {
+                authModal.style.display = 'flex';
+                return;
+            }
+            
+            const course = courses[courseId];
+            if (!course) return;
+            
+            currentCourse = courseId;
+            
+            // Set course details
+            courseTitle.textContent = course.title;
+            courseDescription.textContent = course.description;
+            courseLevel.textContent = course.level;
+            courseLessons.textContent = `${course.lessons.length} lessons`;
+            courseDuration.textContent = `${course.duration}`;
+            courseIcon.innerHTML = `<i class="${course.icon}"></i>`;
+            
+            // Load lessons
+            lessonList.innerHTML = '';
+            course.lessons.forEach((lesson, index) => {
+                const lessonItem = document.createElement('div');
+                lessonItem.className = `lesson-item ${lesson.completed ? 'completed' : ''}`;
+                lessonItem.innerHTML = `
+                    <div class="lesson-number">${index + 1}</div>
+                    <div class="lesson-content">
+                        <h4>${lesson.title}</h4>
+                        <p>${lesson.description}</p>
+                        <div class="lesson-time">
+                            <i class="fas fa-clock"></i> ${lesson.duration} min
+                        </div>
+                    </div>
+                    <div class="lesson-status">
+                        ${lesson.completed ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-lock"></i>'}
+                    </div>
+                `;
+                
+                lessonItem.addEventListener('click', () => {
+                    if (index === 0 || course.lessons[index-1].completed) {
+                        startQuiz(courseId);
+                    } else {
+                        showToast('Complete previous lessons first!', 'error');
+                    }
+                });
+                
+                lessonList.appendChild(lessonItem);
+            });
+            
+            showView('course');
+        }
+        
+        // Start quiz
+        function startQuiz(courseId) {
+            currentQuiz = courseId;
+            currentQuestion = 0;
+            userAnswers = [];
+            
+            quizTitle.textContent = `${courses[courseId].title} Quiz`;
+            loadQuestion(currentQuestion);
+            
+            quizContent.style.display = 'block';
+            quizResult.style.display = 'none';
+            showView('quiz');
+        }
+        
+        // Load a quiz question
+        function loadQuestion(index) {
+            if (!quizzes[currentQuiz] || index >= quizzes[currentQuiz].length) {
+                return;
+            }
+            
+            const question = quizzes[currentQuiz][index];
+            questionContainer.innerHTML = `
+                <div class="question-text">${index + 1}. ${question.question}</div>
+                <div class="options-list">
+                    ${question.options.map((option, i) => `
+                        <div class="option-item" data-answer="${i}">
+                            <div class="option-letter">${String.fromCharCode(65 + i)}</div>
+                            <div>${option}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            // Set selected answer if exists
+            if (userAnswers[index] !== undefined) {
+                const selected = document.querySelector(`.option-item[data-answer="${userAnswers[index]}"]`);
+                if (selected) selected.classList.add('selected');
+            }
+            
+            // Add event listeners to options
+            document.querySelectorAll('.option-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    document.querySelectorAll('.option-item').forEach(i => i.classList.remove('selected'));
+                    item.classList.add('selected');
+                    userAnswers[index] = parseInt(item.getAttribute('data-answer'));
+                });
+            });
+            
+            // Update buttons
+            prevBtn.style.display = index === 0 ? 'none' : 'block';
+            nextBtn.style.display = index < quizzes[currentQuiz].length - 1 ? 'block' : 'none';
+            submitBtn.style.display = index === quizzes[currentQuiz].length - 1 ? 'block' : 'none';
+            
+            // Update progress
+            const progress = ((index + 1) / quizzes[currentQuiz].length) * 100;
+            quizProgress.style.width = `${progress}%`;
+        }
+        
+        // Submit quiz and show results
+        function submitQuiz() {
+            // Calculate score
+            let correct = 0;
+            quizzes[currentQuiz].forEach((question, index) => {
+                if (userAnswers[index] === question.answer) {
+                    correct++;
+                }
+            });
+            
+            const score = Math.round((correct / quizzes[currentQuiz].length) * 100);
+            quizScore.textContent = `${score}%`;
+            
+            // Mark course as completed if score is good
+            if (score >= 70) {
+                courses[currentCourse].lessons.forEach(lesson => {
+                    lesson.completed = true;
+                });
+                updateProgress(10);
+            }
+            
+            // Show results
+            quizContent.style.display = 'none';
+            quizResult.style.display = 'block';
+        }
+        
+        // Show certificate
+        function showCertificate() {
+            const user = JSON.parse(localStorage.getItem('mindpulseUser') || '{}');
+            const score = parseInt(quizScore.textContent);
+            
+            certUser.textContent = user.username || 'User';
+            certCourse.textContent = courses[currentCourse].title;
+            certDate.textContent = new Date().toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            certDuration.textContent = courses[currentCourse].duration;
+            certScore.textContent = `${score}%`;
+            certId.textContent = `MP-${new Date().getFullYear()}-${currentCourse.toUpperCase().substr(0, 2)}-${Math.floor(Math.random() * 1000)}`;
+            
+            showView('certificate');
+        }
+        
+        // Update user progress
+        function updateProgress(increment) {
+            if (!isLoggedIn()) return;
+            
+            const user = JSON.parse(localStorage.getItem('mindpulseUser') || {});
+            user.progress = Math.min((user.progress || 0) + increment, 100);
+            localStorage.setItem('mindpulseUser', JSON.stringify(user));
+            updateUI();
         }
         
         // Initialize UI
@@ -1269,10 +2186,54 @@
             if (!isLoggedIn()) {
                 authModal.style.display = 'flex';
             } else {
-                // Redirect to learning path
-                showToast('Continuing to your learning path...', 'success');
+                // Start the first course
+                loadCourse('data-viz');
             }
         });
+        
+        // Navigation
+        courseBackBtn.addEventListener('click', () => {
+            showView('dashboard');
+        });
+        
+        quizBackBtn.addEventListener('click', () => {
+            showView('course');
+        });
+        
+        resultBackBtn.addEventListener('click', () => {
+            showView('course');
+        });
+        
+        // Quiz navigation
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion(currentQuestion);
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (userAnswers[currentQuestion] === undefined) {
+                showToast('Please select an answer!', 'error');
+                return;
+            }
+            
+            if (currentQuestion < quizzes[currentQuiz].length - 1) {
+                currentQuestion++;
+                loadQuestion(currentQuestion);
+            }
+        });
+        
+        submitBtn.addEventListener('click', () => {
+            if (userAnswers[currentQuestion] === undefined) {
+                showToast('Please select an answer!', 'error');
+                return;
+            }
+            
+            submitQuiz();
+        });
+        
+        certificateBtn.addEventListener('click', showCertificate);
         
         // Close modal when clicking outside
         window.addEventListener('click', (e) => {
@@ -1281,102 +2242,23 @@
             }
         });
         
-        // Simulating personalized learning features
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set up navigation
-            const navTabs = document.querySelectorAll('.nav-tab');
-            navTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    navTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    showToast(`Showing ${tab.textContent}`, 'success');
-                });
+        // Navigation tabs
+        navTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const view = tab.getAttribute('data-view');
+                if (view === 'courses') {
+                    loadCourse('data-viz');
+                } else {
+                    showView(view);
+                }
             });
-            
-            // Set up module interactions
-            const modules = document.querySelectorAll('.module-card');
-            modules.forEach(module => {
-                module.addEventListener('click', () => {
-                    if (!isLoggedIn()) {
-                        authModal.style.display = 'flex';
-                        return;
-                    }
-                    
-                    // Highlight the selected module
-                    modules.forEach(m => m.style.border = 'none');
-                    module.style.border = `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--teal')}`;
-                    
-                    // Show loading animation
-                    const icon = module.querySelector('.module-image i');
-                    const originalClass = icon.className;
-                    icon.className = 'fas fa-spinner fa-spin';
-                    
-                    // Simulate loading content
-                    setTimeout(() => {
-                        icon.className = originalClass;
-                        showToast(`Starting "${module.querySelector('h3').textContent}" module!`, 'success');
-                    }, 800);
-                });
-            });
-            
-            // Set up learning path interactions
-            const pathItems = document.querySelectorAll('.path-item');
-            pathItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    if (!isLoggedIn()) {
-                        authModal.style.display = 'flex';
-                        return;
-                    }
-                    
-                    if(!item.querySelector('.fa-check-circle')) {
-                        const badge = item.querySelector('.badge');
-                        if(badge) {
-                            badge.textContent = 'Active';
-                        } else {
-                            const icon = document.createElement('i');
-                            icon.className = 'fas fa-check-circle';
-                            icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--teal');
-                            item.appendChild(icon);
-                        }
-                        
-                        // Show confirmation
-                        const pathName = item.querySelector('h4').textContent;
-                        showToast(`Starting "${pathName}" path!`, 'success');
-                    }
-                });
-            });
-            
-            // Set up microlearning card interactions
-            const microCards = document.querySelectorAll('.micro-card');
-            microCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    if (!isLoggedIn()) {
-                        authModal.style.display = 'flex';
-                        return;
-                    }
-                    
-                    const icon = card.querySelector('.micro-icon i');
-                    const originalClass = icon.className;
-                    icon.className = 'fas fa-spinner fa-spin';
-                    
-                    // Simulate lesson loading
-                    setTimeout(() => {
-                        icon.className = originalClass;
-                        const lessonName = card.querySelector('h4').textContent;
-                        card.style.background = 'rgba(94, 156, 141, 0.1)';
-                        
-                        // Update progress
-                        const user = JSON.parse(localStorage.getItem('mindpulseUser'));
-                        const newProgress = Math.min(user.progress + 5, 100);
-                        user.progress = newProgress;
-                        localStorage.setItem('mindpulseUser', JSON.stringify(user));
-                        
-                        // Update UI
-                        updateUI();
-                        
-                        showToast(`Great job completing "${lessonName}"!`, 'success');
-                    }, 1000);
-                });
+        });
+        
+        // Course module click handlers
+        document.querySelectorAll('.module-card').forEach(module => {
+            module.addEventListener('click', () => {
+                const courseId = module.getAttribute('data-course');
+                loadCourse(courseId);
             });
         });
     </script>
