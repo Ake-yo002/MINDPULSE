@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindPulse | Sophisticated Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+        }
+        
+        :root {
+            --primary: #9c89b8; /* Soft purple */
+            --primary-light: #e8e6f7;
+            --secondary: #7c5e9c; /* Deep purple */
+            --accent: #ffb6c1; /* Light pink */
+            --teal: #5e9c8d; /* Teal */
+            --light: #ffffff; 
+            --dark: #4a4063;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-shadow: rgba(156, 137, 184, 0.15);
+            --success: #8ddfc1;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f5ff 0%, #f0edfa 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 15px 40px var(--card-shadow);
+            overflow: hidden;
+            margin: 20px auto;
+            border: 1px solid rgba(156, 137, 184, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo h1 {
+            font-weight: 700;
+            font-size: 2.2rem;
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+        }
+        
+        .logo p {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .user-actions button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .user-actions button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            background: rgba(156, 137, 184, 0.1);
+            padding: 0 30px;
+            border-bottom: 1px solid rgba(156, 137, 184, 0.1);
+        }
+        
+        .nav-tab {
+            padding: 18px 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            position: relative;
+        }
+        
+        .nav-tab.active {
+            border-bottom: 3px solid var(--teal);
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-tab:hover:not(.active) {
+            background: rgba(156, 137, 184, 0.15);
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .welcome-card {
+            background: linear-gradient(135deg, rgba(156, 137, 184, 0.1) 0%, rgba(94, 156, 141, 0.1) 100%);
+            border-radius: 18px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .welcome-text h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .welcome-text p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+        
+        .progress-container {
+            flex-shrink: 0;
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        
+        .progress-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(var(--teal) 75%, var(--primary-light) 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+        }
+        
+        .progress-inner {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .modules-section h2 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .module-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--card-shadow);
+            border: 1px solid rgba(156, 137, 184, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(156, 137, 184, 0.2);
+        }
+        
+        .module-image {
+            height: 160px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .module-content {
+            padding: 20px;
+        }
+        
+        .module-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .module-content p {
+            font-size: 0.95rem;
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .module-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+        
+        .module-level {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 5px 15px var(--card-shadow);
+            border: 1px solid rgba(156, 137, 184, 0.1);
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .learning-path {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .path-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(156, 137, 184, 0.05);
+            transition: background 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(156, 137, 184, 0.08);
+        }
+        
+        .path-item:hover {
+            background: rgba(156, 137, 184, 0.1);
+        }
+        
+        .path-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .path-text {
+            flex: 1;
+        }
+        
+        .path-text h4 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+        
+        .path-text p {
+            font-size: 0.85rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .achievement {
+            background: rgba(156, 137, 184, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(156, 137, 184, 0.08);
+        }
+        
+        .achievement:hover {
+            transform: scale(1.05);
+        }
+        
+        .achievement i {
+            font-size: 2rem;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        
+        .achievement h4 {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+        
+        .achievement p {
+            font-size: 0.8rem;
+            color: var(--dark);
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+        
+        .recommended-card {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.1) 0%, rgba(156, 137, 184, 0.1) 100%);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .recommended-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .micro-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .micro-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .micro-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .micro-text h4 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+        
+        .micro-text p {
+            font-size: 0.85rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+        
+        .time-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+            color: var(--teal);
+            margin-top: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--secondary);
+            font-size: 1rem;
+            border-top: 1px solid rgba(156, 137, 184, 0.15);
+            font-weight: 500;
+            font-family: 'Georgia', serif;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                overflow-x: auto;
+                padding: 0;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .welcome-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .module-card, .path-item, .achievement, .micro-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .module-card:nth-child(1) { animation-delay: 0.1s; }
+        .module-card:nth-child(2) { animation-delay: 0.2s; }
+        .module-card:nth-child(3) { animation-delay: 0.3s; }
+        .module-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .path-item:nth-child(1) { animation-delay: 0.1s; }
+        .path-item:nth-child(2) { animation-delay: 0.2s; }
+        .path-item:nth-child(3) { animation-delay: 0.3s; }
+        
+        .achievement:nth-child(1) { animation-delay: 0.1s; }
+        .achievement:nth-child(2) { animation-delay: 0.2s; }
+        .achievement:nth-child(3) { animation-delay: 0.3s; }
+        .achievement:nth-child(4) { animation-delay: 0.4s; }
+        
+        .micro-card:nth-child(1) { animation-delay: 0.1s; }
+        .micro-card:nth-child(2) { animation-delay: 0.2s; }
+        
+        /* Auth Modal Styles */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .auth-modal-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalAppear 0.4s ease;
+        }
+        
+        @keyframes modalAppear {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .auth-header {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--secondary) 100%);
+            padding: 25px;
+            text-align: center;
+            color: white;
+        }
+        
+        .auth-header h2 {
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .auth-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .auth-tab.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .auth-body {
+            padding: 30px;
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(156, 137, 184, 0.3);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(94, 156, 141, 0.2);
+        }
+        
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        
+        .auth-btn:hover {
+            background: #6a4d8a;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .auth-footer a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--teal);
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            background: var(--secondary);
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1001;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast.error {
+            background: #e74c3c;
+        }
+        
+        .toast.success {
+            background: var(--teal);
+        }
+        
+        /* Decorative Elements */
+        .decorative-element {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .decor-1 {
+            top: -50px;
+            right: -50px;
+        }
+        
+        .decor-2 {
+            bottom: 20%;
+            left: -80px;
+        }
+        
+        .decor-3 {
+            bottom: -30px;
+            right: 30%;
+        }
+        
+        /* Pulse animation for featured cards */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(156, 137, 184, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(156, 137, 184, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(156, 137, 184, 0); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative background elements -->
+    <div class="decorative-element decor-1"></div>
+    <div class="decorative-element decor-2"></div>
+    <div class="decorative-element decor-3"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <div>
+                    <h1>MindPulse</h1>
+                    <p>Microlearning tailored to your cognitive rhythm</p>
+                </div>
+            </div>
+            <div class="user-actions">
+                <button id="user-btn">
+                    <i class="fas fa-user"></i> 
+                    <span id="username">Guest</span>
+                </button>
+                <button>
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </header>
+        
+        <div class="nav-tabs">
+            <div class="nav-tab active">Dashboard</div>
+            <div class="nav-tab">My Courses</div>
+            <div class="nav-tab">Learning Paths</div>
+            <div class="nav-tab">Achievements</div>
+            <div class="nav-tab">Resources</div>
+        </div>
+        
+        <div class="content">
+            <div class="main-content">
+                <div class="welcome-card">
+                    <div class="welcome-text">
+                        <h2 id="welcome-message">Welcome to MindPulse!</h2>
+                        <p id="welcome-description">Sign in to continue your learning journey or explore new topics tailored to your pace and interests. Our sophisticated microlearning platform helps you master skills in bite-sized lessons.</p>
+                        <button class="user-actions" id="continue-btn" style="background: var(--secondary);">
+                            <i class="fas fa-play"></i> Continue Learning
+                        </button>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-circle">
+                            <div class="progress-inner" id="progress-value">
+                                0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modules-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Featured Modules</h2>
+                    <div class="modules-grid">
+                        <div class="module-card pulse">
+                            <div class="module-image">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="module-content">
+                                <h3>Data Visualization</h3>
+                                <p>Learn to create compelling visual stories with data in 5-minute lessons.</p>
+                                <div class="module-meta">
+                                    <div class="module-level">
+                                        <i class="fas fa-signal"></i> Intermediate
+                                    </div>
+                                    <div>8 lessons</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="module-card">
+                            <div class="module-image">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="module-content">
+                                <h3>Cybersecurity Basics</h3>
+                                <p>Essential security practices in bite-sized, easy-to-digest lessons.</p>
+                                <div class="module-meta">
+                                    <div class="module-level">
+                                        <i class="fas fa-signal"></i> Beginner
+                                    </div>
+                                    <div>6 lessons</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="module-card">
+                            <div class="module-image">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="module-content">
+                                <h3>AI Fundamentals</h3>
+                                <p>Understand AI concepts through 3-minute micro-lessons.</p>
+                                <div class="module-meta">
+                                    <div class="module-level">
+                                        <i class="fas fa-signal"></i> Beginner
+                                    </div>
+                                    <div>5 lessons</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="module-card">
+                            <div class="module-image">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="module-content">
+                                <h3>JavaScript Patterns</h3>
+                                <p>Master JavaScript design patterns with quick 4-minute tutorials.</p>
+                                <div class="module-meta">
+                                    <div class="module-level">
+                                        <i class="fas fa-signal"></i> Advanced
+                                    </div>
+                                    <div>7 lessons</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="card">
+                    <h3><i class="fas fa-route"></i> Your Learning Path</h3>
+                    <div class="learning-path">
+                        <div class="path-item">
+                            <div class="path-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="path-text">
+                                <h4>Foundations</h4>
+                                <p>Core concepts for beginners</p>
+                            </div>
+                            <i class="fas fa-check-circle" style="color: var(--teal);"></i>
+                        </div>
+                        
+                        <div class="path-item">
+                            <div class="path-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="path-text">
+                                <h4>Data Science</h4>
+                                <p>Current learning path</p>
+                            </div>
+                            <div class="badge">Active</div>
+                        </div>
+                        
+                        <div class="path-item">
+                            <div class="path-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="path-text">
+                                <h4>AI Specialization</h4>
+                                <p>Next in your journey</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Quick Learner</h4>
+                            <p>Complete 5 lessons in one day</p>
+                        </div>
+                        
+                        <div class="achievement">
+                            <i class="fas fa-infinity"></i>
+                            <h4>Streak Master</h4>
+                            <p>7 consecutive days of learning</p>
+                        </div>
+                        
+                        <div class="achievement">
+                            <i class="fas fa-star"></i>
+                            <h4>Perfect Score</h4>
+                            <p>Ace a challenging quiz</p>
+                        </div>
+                        
+                        <div class="achievement">
+                            <i class="fas fa-book"></i>
+                            <h4>Bookworm</h4>
+                            <p>Complete 20 lessons</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recommended-card">
+                    <h3><i class="fas fa-lightbulb"></i> Quick Bites</h3>
+                    <p>Short lessons you can complete in under 5 minutes</p>
+                    
+                    <div class="micro-card">
+                        <div class="micro-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="micro-text">
+                            <h4>Cloud Storage Basics</h4>
+                            <div class="time-indicator">
+                                <i class="fas fa-clock"></i> 4 min
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="micro-card">
+                        <div class="micro-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="micro-text">
+                            <h4>Password Security</h4>
+                            <div class="time-indicator">
+                                <i class="fas fa-clock"></i> 3 min
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>MindPulse • Sophisticated microlearning for the modern mind</p>
+        </footer>
+    </div>
+    
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="auth-header">
+                <h2>Welcome to MindPulse</h2>
+                <p>Personalized learning journey awaits you</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="register">Register</div>
+            </div>
+            
+            <div class="auth-body">
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                        <div class="error-message" id="login-email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                        <div class="error-message" id="login-password-error"></div>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn">Login</button>
+                    
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a id="show-register">Register here</a></p>
+                    </div>
+                </form>
+                
+                <!-- Register Form -->
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" placeholder="Choose a username" required>
+                        <div class="error-message" id="register-username-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" placeholder="Enter your email" required>
+                        <div class="error-message" id="register-email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" placeholder="Create a password" required>
+                        <div class="error-message" id="register-password-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" placeholder="Confirm your password" required>
+                        <div class="error-message" id="register-confirm-error"></div>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn">Create Account</button>
+                    
+                    <div class="auth-footer">
+                        <p>Already have an account? <a id="show-login">Login here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+    
+    <script>
+        // DOM Elements
+        const authModal = document.getElementById('auth-modal');
+        const closeModal = document.getElementById('close-modal');
+        const userBtn = document.getElementById('user-btn');
+        const usernameDisplay = document.getElementById('username');
+        const welcomeMessage = document.getElementById('welcome-message');
+        const welcomeDescription = document.getElementById('welcome-description');
+        const continueBtn = document.getElementById('continue-btn');
+        const progressValue = document.getElementById('progress-value');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const showRegister = document.getElementById('show-register');
+        const showLogin = document.getElementById('show-login');
+        const toast = document.getElementById('toast');
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            toast.textContent = message;
+            toast.className = `toast show ${type}`;
+            
+            setTimeout(() => {
+                toast.className = 'toast';
+            }, 3000);
+        }
+        
+        // Check if user is logged in
+        function isLoggedIn() {
+            return localStorage.getItem('mindpulseUser') !== null;
+        }
+        
+        // Update UI based on login status
+        function updateUI() {
+            if (isLoggedIn()) {
+                const user = JSON.parse(localStorage.getItem('mindpulseUser') || '{}');
+                usernameDisplay.textContent = user.username || 'User';
+                welcomeMessage.textContent = `Welcome back, ${user.username || 'User'}!`;
+                welcomeDescription.textContent = "Your learning journey is personalized just for you. Continue where you left off or explore new topics tailored to your pace and interests.";
+                progressValue.textContent = `${user.progress || 0}%`;
+                document.querySelector('.progress-circle').style.background = 
+                    `conic-gradient(var(--teal) ${user.progress || 0}%, var(--primary-light) 0)`;
+            } else {
+                usernameDisplay.textContent = 'Guest';
+                welcomeMessage.textContent = 'Welcome to MindPulse!';
+                welcomeDescription.textContent = "Sign in to continue your learning journey or explore new topics tailored to your pace and interests.";
+                progressValue.textContent = '0%';
+                document.querySelector('.progress-circle').style.background = 
+                    `conic-gradient(var(--teal) 0%, var(--primary-light) 0)`;
+            }
+        }
+        
+        // Initialize UI
+        updateUI();
+        
+        // Event Listeners
+        userBtn.addEventListener('click', () => {
+            if (isLoggedIn()) {
+                // Show user menu (logout option)
+                if(confirm('Do you want to logout?')) {
+                    localStorage.removeItem('mindpulseUser');
+                    updateUI();
+                    showToast('You have been logged out', 'success');
+                }
+            } else {
+                authModal.style.display = 'flex';
+            }
+        });
+        
+        closeModal.addEventListener('click', () => {
+            authModal.style.display = 'none';
+        });
+        
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                authTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all forms
+                document.querySelectorAll('.auth-form').forEach(form => {
+                    form.classList.remove('active');
+                });
+                
+                // Show corresponding form
+                const tabName = tab.getAttribute('data-tab');
+                document.getElementById(`${tabName}-form`).classList.add('active');
+            });
+        });
+        
+        showRegister.addEventListener('click', () => {
+            authTabs.forEach(t => t.classList.remove('active'));
+            document.querySelector('.auth-tab[data-tab="register"]').classList.add('active');
+            
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            registerForm.classList.add('active');
+        });
+        
+        showLogin.addEventListener('click', () => {
+            authTabs.forEach(t => t.classList.remove('active'));
+            document.querySelector('.auth-tab[data-tab="login"]').classList.add('active');
+            
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            loginForm.classList.add('active');
+        });
+        
+        // Form submission handlers
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Simulate login
+            localStorage.setItem('mindpulseUser', JSON.stringify({
+                username: email.split('@')[0],
+                email: email,
+                progress: 25
+            }));
+            
+            // Update UI
+            updateUI();
+            
+            // Close modal
+            authModal.style.display = 'none';
+            
+            // Show success message
+            showToast('Login successful!', 'success');
+            
+            // Clear form
+            loginForm.reset();
+        });
+        
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            
+            // Validate password match
+            if (password !== confirm) {
+                document.getElementById('register-confirm-error').textContent = "Passwords don't match";
+                document.getElementById('register-confirm-error').style.display = 'block';
+                return;
+            }
+            
+            // Simulate registration
+            localStorage.setItem('mindpulseUser', JSON.stringify({
+                username: username,
+                email: email,
+                progress: 0
+            }));
+            
+            // Show success message
+            showToast('Registration successful! Welcome to MindPulse', 'success');
+            
+            // Clear form
+            registerForm.reset();
+            
+            // Switch to login form
+            authTabs.forEach(t => t.classList.remove('active'));
+            document.querySelector('.auth-tab[data-tab="login"]').classList.add('active');
+            
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            loginForm.classList.add('active');
+            
+            // Update UI
+            updateUI();
+        });
+        
+        // Continue button handler
+        continueBtn.addEventListener('click', () => {
+            if (!isLoggedIn()) {
+                authModal.style.display = 'flex';
+            } else {
+                // Redirect to learning path
+                showToast('Continuing to your learning path...', 'success');
+            }
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                authModal.style.display = 'none';
+            }
+        });
+        
+        // Simulating personalized learning features
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up navigation
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    showToast(`Showing ${tab.textContent}`, 'success');
+                });
+            });
+            
+            // Set up module interactions
+            const modules = document.querySelectorAll('.module-card');
+            modules.forEach(module => {
+                module.addEventListener('click', () => {
+                    if (!isLoggedIn()) {
+                        authModal.style.display = 'flex';
+                        return;
+                    }
+                    
+                    // Highlight the selected module
+                    modules.forEach(m => m.style.border = 'none');
+                    module.style.border = `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--teal')}`;
+                    
+                    // Show loading animation
+                    const icon = module.querySelector('.module-image i');
+                    const originalClass = icon.className;
+                    icon.className = 'fas fa-spinner fa-spin';
+                    
+                    // Simulate loading content
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                        showToast(`Starting "${module.querySelector('h3').textContent}" module!`, 'success');
+                    }, 800);
+                });
+            });
+            
+            // Set up learning path interactions
+            const pathItems = document.querySelectorAll('.path-item');
+            pathItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (!isLoggedIn()) {
+                        authModal.style.display = 'flex';
+                        return;
+                    }
+                    
+                    if(!item.querySelector('.fa-check-circle')) {
+                        const badge = item.querySelector('.badge');
+                        if(badge) {
+                            badge.textContent = 'Active';
+                        } else {
+                            const icon = document.createElement('i');
+                            icon.className = 'fas fa-check-circle';
+                            icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--teal');
+                            item.appendChild(icon);
+                        }
+                        
+                        // Show confirmation
+                        const pathName = item.querySelector('h4').textContent;
+                        showToast(`Starting "${pathName}" path!`, 'success');
+                    }
+                });
+            });
+            
+            // Set up microlearning card interactions
+            const microCards = document.querySelectorAll('.micro-card');
+            microCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    if (!isLoggedIn()) {
+                        authModal.style.display = 'flex';
+                        return;
+                    }
+                    
+                    const icon = card.querySelector('.micro-icon i');
+                    const originalClass = icon.className;
+                    icon.className = 'fas fa-spinner fa-spin';
+                    
+                    // Simulate lesson loading
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                        const lessonName = card.querySelector('h4').textContent;
+                        card.style.background = 'rgba(94, 156, 141, 0.1)';
+                        
+                        // Update progress
+                        const user = JSON.parse(localStorage.getItem('mindpulseUser'));
+                        const newProgress = Math.min(user.progress + 5, 100);
+                        user.progress = newProgress;
+                        localStorage.setItem('mindpulseUser', JSON.stringify(user));
+                        
+                        // Update UI
+                        updateUI();
+                        
+                        showToast(`Great job completing "${lessonName}"!`, 'success');
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
