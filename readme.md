@@ -1,3 +1,4 @@
+#LIVE SHOW: https://mindpulseakeyo.netlify.app/
 MindPulse Learning Platform
 MindPulse is a sophisticated microlearning platform designed to deliver knowledge in bite-sized lessons tailored to the user's cognitive rhythm. This project implements a fully functional learning management system with user authentication, course navigation, interactive quizzes, and certificate generation.
 
